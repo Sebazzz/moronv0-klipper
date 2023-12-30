@@ -20,3 +20,18 @@ Download all the files by going to the green "Code" button, and then selecting "
 Then upload all the configurations to your Klipper instance.
 
 Then modify the MCU paths in [`configs/mcu.cfg`](./configs/mcu.cfg) to point to your MCUs.
+
+In your slicer use the following start-gcode:
+
+```
+SET_PRINT_STATS_INFO TOTAL_LAYER=[total_layer_count]
+PRINT_START EXTRUDER=[nozzle_temperature_initial_layer] BED=[bed_temperature_initial_layer_single]
+PRINT_INIT_HOTBED_TEXTURED  # One of these
+PRINT_INIT_HOTBED_SMOOTH
+```
+
+Use the following `PRINT_END`:
+
+```
+PRINT_END
+```
